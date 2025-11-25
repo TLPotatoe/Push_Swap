@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 16:14:35 by tlamit            #+#    #+#             */
-/*   Updated: 2025/11/25 18:54:43 by tlamit           ###   ########.fr       */
+/*   Updated: 2025/11/25 19:32:07 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	count_params_str(char *s)
 			flag = 1;
 			s++;
 		}
-		if (*s && !ft_isdigit(*s) && !(*s == ' ' || *s == '-'))
+		if (*s && !ft_isdigit(*s) && *(s-1) != ' ')
 			return (-1);
 	}
 	return (n);
