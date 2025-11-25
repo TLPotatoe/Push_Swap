@@ -1,1 +1,6 @@
 visualizer-push-swap
+.vscode
+*.a
+*.o
+*.out
+compile_commands.json

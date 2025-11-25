@@ -1,0 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/18 21:42:10 by tlamit            #+#    #+#             */
+/*   Updated: 2025/11/19 15:05:46 by tlamit           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "get_next_line_bonus.h"
+#include "stdio.h"
+
+int	main(void)
+{
+	int		fd;
+	char	*line;
+
+	fd = open("file.txt", O_RDONLY);
+	while (1)
+	{
+		line = get_next_line(fd);
+		if (!line)
+			break ;
+		printf("->%s", line);
+		free(line);
+	}
+	close(fd);
+}

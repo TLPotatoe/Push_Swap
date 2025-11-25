@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/20 15:49:33 by tlamit            #+#    #+#             */
-/*   Updated: 2025/11/20 16:14:55 by tlamit           ###   ########.fr       */
+/*   Created: 2025/10/16 14:48:44 by tlamit            #+#    #+#             */
+/*   Updated: 2025/10/17 13:36:52 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-typedef struct t_stack
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-    
-}   s_stack;
-
-#endif
+	while (n--)
+	{
+		if (*(unsigned char *)s == (unsigned char)c)
+			return ((void *)s);
+		s++;
+	}
+	return (NULL);
+}
