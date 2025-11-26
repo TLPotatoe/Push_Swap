@@ -6,17 +6,17 @@
 #    By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/13 14:16:18 by fmurat--          #+#    #+#              #
-#    Updated: 2025/11/21 23:20:13 by tlamit           ###   ########.fr        #
+#    Updated: 2025/11/26 18:31:44 by tlamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
-
 NAME = libft.a
 
-HEADER = -I get_next_line -I ft_printf
+HEADER = -I. -I get_next_line -I ft_printf
+
+CFLAGS = -Wall -Wextra -Werror -g $(HEADER)
 
 SRCS_GNL = get_next_line/get_next_line.c \
 		   get_next_line/get_next_line_utils.c
@@ -95,8 +95,8 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
-%.o : %.c $(HEADER)
-	$(CC) $(CFLAGS) -c $< -o $@
+%.o : %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
 	rm -f $(OBJS)

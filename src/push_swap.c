@@ -6,15 +6,16 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 15:36:58 by tlamit            #+#    #+#             */
-/*   Updated: 2025/11/25 18:21:19 by tlamit           ###   ########.fr       */
+/*   Updated: 2025/11/26 18:30:45 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+int main(int ac, char **av)
 {
-	t_stack	*stack_a;
+	t_stack *stack_a;
 
 	stack_a = parse(ac, av);
+	(void)stack_a;
 }

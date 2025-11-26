@@ -6,50 +6,44 @@
 #    By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/13 14:16:18 by fmurat--          #+#    #+#              #
-#    Updated: 2025/11/24 16:14:40 by tlamit           ###   ########.fr        #
+#    Updated: 2025/11/26 18:30:07 by tlamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC=cc
 
-SRC_DIR = src/
-SRCS = $(SRC_DIR)parse.c \
-	$(SRC_DIR)push_swap.c 
+SRCS = src/parse.c \
+	src/push_swap.c 
 
-CFLAGS = -Wall -Wextra -Werror -g \
-		-I includes \
-		-I Libft_C/ \
-		-I Libft_C/ft_printf/ \
-		-I Libft_C/get_next_line/
+HEADER = -I includes \
+		-I Libft_C/
+
+CFLAGS = -Wall -Wextra -Werror -g $(HEADER)
 
 NAME = push_swap
 LIBFT = Libft_C/libft.a
 LDFLAGS = $(LIBFT)
 
-OBJ_DIR = objs/
-OBJS = $(SRCS:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
+OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME):  $(LIBFT) $(OBJS)
+$(NAME): $(OBJS) $(LIBFT)
 	$(CC) $(OBJS) $(LDFLAGS) -o $(NAME)
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	@mkdir -p objs/
+%.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
-
 
 $(LIBFT):
 	$(MAKE) -C Libft_C
 
 clean:
-	rm -rf $(OBJ_DIR)
+	rm -f $(OBJS)
 	$(MAKE) -C Libft_C clean
 
-fclean:
+fclean: clean
 	rm -f $(NAME)
 	$(MAKE) -C Libft_C fclean
-	rm -rf $(OBJ_DIR)
 
 re: fclean all
 

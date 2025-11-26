@@ -4,3 +4,4 @@ visualizer-push-swap
 *.o
 *.out
 compile_commands.json
+push_swap
