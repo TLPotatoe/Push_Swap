@@ -6,30 +6,13 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 16:14:35 by tlamit            #+#    #+#             */
-/*   Updated: 2025/11/26 20:54:11 by tlamit           ###   ########.fr       */
+/*   Updated: 2025/11/26 23:05:40 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "push_swap.h"
 
-char	*ft_strcharset(char *s1, char *charset)
-{
-	int	i;
-
-	while (*s1)
-	{
-		i = 0;
-		while (charset[i])
-		{
-			if (*s1 == charset[i])
-				return (s1);
-		}
-	}
-	return (NULL);
-}
-
-long int	long_atoi(const char *nptr)
+static long	long_atoi(const char *nptr)
 {
 	int			sign;
 	long int	result;
@@ -48,8 +31,6 @@ long int	long_atoi(const char *nptr)
 		result = result * 10 + *nptr++ - '0';
 	return (result * sign);
 }
-
-#include <stdio.h>
 
 int	count_params_str(char *s)
 {
@@ -103,11 +84,23 @@ int	get_n_params(char **av)
 
 t_stack	*parse(int ac, char **av)
 {
-	int	i;
+	int		n;
+	int		i;
+	t_stack	*stack_a;
 
-	(void)ac;
+	n = get_n_params(av);
+	if (!n && n == -1)
+		return (NULL);
+	stack_a = malloc(sizeof(t_stack));
+	if (!stack_a)
+		return (NULL);
+	stack_a->stack = malloc(sizeof(int) * n)
 	i = 0;
-	(void)i;
-	ft_printf("%d", get_n_params(av));
+	while (i < n)
+	{
+		if (av[1] + i != 0)
+		
+	}
 	return (NULL);
+	(void)long_atoi;
 }

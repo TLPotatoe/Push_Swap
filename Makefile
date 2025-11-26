@@ -6,19 +6,24 @@
 #    By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/13 14:16:18 by fmurat--          #+#    #+#              #
-#    Updated: 2025/11/26 18:30:07 by tlamit           ###   ########.fr        #
+#    Updated: 2025/11/26 22:44:26 by tlamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC=cc
 
 SRCS = src/parse.c \
-	src/push_swap.c 
+	src/push_swap.c \
+	src/utils/utils.c
 
 HEADER = -I includes \
 		-I Libft_C/
 
-CFLAGS = -Wall -Wextra -Werror -g $(HEADER)
+ifndef DEBUG
+	CFLAGS = -Wall -Wextra -Werror -g $(HEADER)
+else
+	CFLAGS = -g $(HEADER)
+endif
 
 NAME = push_swap
 LIBFT = Libft_C/libft.a

@@ -60,5 +60,12 @@
     "format": "c",
     "queue": "c",
     "vector": "c"
-  }
+  },
+  "makefile.launchConfigurations": [
+    {
+      "cwd": "/home/tlamit/Documents/TC/Push_Swap",
+      "binaryPath": "/home/tlamit/Documents/TC/Push_Swap/push_swap",
+      "binaryArgs": []
+    }
+  ]
 }

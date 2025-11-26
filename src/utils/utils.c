@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/20 15:36:58 by tlamit            #+#    #+#             */
-/*   Updated: 2025/11/26 21:57:25 by tlamit           ###   ########.fr       */
+/*   Created: 2025/11/26 22:40:32 by tlamit            #+#    #+#             */
+/*   Updated: 2025/11/26 22:57:20 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+char	*ft_strcharset(char *s1, char *charset)
 {
-	t_stack	*stack_a;
+	int	i;
 
-	(void)ac;
-	stack_a = parse(ac, av);
-	(void)stack_a;
+	while (*s1)
+	{
+		i = 0;
+		while (charset[i])
+			if (*s1 == charset[i])
+				return (s1);
+	}
+	return (NULL);
 }
