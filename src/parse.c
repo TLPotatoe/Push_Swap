@@ -6,16 +6,16 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 16:14:35 by tlamit            #+#    #+#             */
-/*   Updated: 2025/11/26 18:30:35 by tlamit           ###   ########.fr       */
+/*   Updated: 2025/11/26 20:54:11 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
 
-char *ft_strcharset(char *s1, char *charset)
+char	*ft_strcharset(char *s1, char *charset)
 {
-	int i;
+	int	i;
 
 	while (*s1)
 	{
@@ -29,10 +29,10 @@ char *ft_strcharset(char *s1, char *charset)
 	return (NULL);
 }
 
-long int long_atoi(const char *nptr)
+long int	long_atoi(const char *nptr)
 {
-	int sign;
-	long int result;
+	int			sign;
+	long int	result;
 
 	sign = 1;
 	result = 0;
@@ -49,40 +49,42 @@ long int long_atoi(const char *nptr)
 	return (result * sign);
 }
 
-int count_params_str(char *s)
+#include <stdio.h>
+
+int	count_params_str(char *s)
 {
-	int n;
-	int flag;
+	int	n;
+	int	flag;
 
 	n = 0;
 	flag = 1;
 	while (*s)
 	{
-		while (*s && (*s == '-' || ft_isdigit(*s)))
+		if (*s && *s == '-')
+			s++;
+		while (*s && ft_isdigit(*s))
 		{
 			if (flag)
-			{
-				flag = 0;
 				n++;
-			}
+			flag = 0;
 			s++;
 		}
-		while (*s && (*s == ' '))
+		if (*s && *s != ' ')
+			return (-1);
+		while (*s && !ft_isdigit(*s) && *s != '-')
 		{
 			flag = 1;
 			s++;
 		}
-		if (*s && !ft_isdigit(*s) && *(s - 1) != ' ')
-			return (-1);
 	}
 	return (n);
 }
 
-int get_n_params(char **av)
+int	get_n_params(char **av)
 {
-	int i;
-	int n;
-	int temp;
+	int	i;
+	int	n;
+	int	temp;
 
 	if (!av)
 		return (-1);
@@ -99,9 +101,9 @@ int get_n_params(char **av)
 	return (n);
 }
 
-t_stack *parse(int ac, char **av)
+t_stack	*parse(int ac, char **av)
 {
-	int i;
+	int	i;
 
 	(void)ac;
 	i = 0;
