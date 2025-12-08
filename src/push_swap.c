@@ -6,15 +6,15 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 15:36:58 by tlamit            #+#    #+#             */
-/*   Updated: 2025/11/28 00:37:03 by tlamit           ###   ########.fr       */
+/*   Updated: 2025/12/08 14:25:59 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int check_stack_status(int *stack, int len)
+static int	check_stack_status(int *stack, int len)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < len)
@@ -23,12 +23,18 @@ static int check_stack_status(int *stack, int len)
 	return (0);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	t_stack *stack_a;
+	t_stack	*stack_a;
+	int		i;
 
 	(void)ac;
 	stack_a = parse(av);
+	i = 0;
+	while (stack_a->len > i)
+	{
+		ft_printf("VAL %d\n", stack_a->stack[i++]);
+	}
 	if (!check_stack_status(stack_a->stack, stack_a->len))
 	{
 		free(stack_a);

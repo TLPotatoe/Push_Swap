@@ -6,15 +6,15 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 22:40:32 by tlamit            #+#    #+#             */
-/*   Updated: 2025/11/28 00:32:44 by tlamit           ###   ########.fr       */
+/*   Updated: 2025/12/08 14:25:56 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char *ft_strcharset(char *s1, char *charset)
+char	*ft_strcharset(char *s1, char *charset)
 {
-	int i;
+	int	i;
 
 	while (*s1)
 	{
