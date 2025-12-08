@@ -6,30 +6,34 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 16:14:35 by tlamit            #+#    #+#             */
-/*   Updated: 2025/12/08 14:06:52 by tlamit           ###   ########.fr       */
+/*   Updated: 2025/12/08 14:13:21 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static long	long_atoi(const char *nptr)
+static int	long_atoi(const char *nptr, int *ret)
 {
 	int			sign;
 	long int	result;
+	int			len;
 
 	sign = 1;
 	result = 0;
-	while ((9 <= *nptr && *nptr <= 13) || *nptr == 32)
-		nptr++;
-	if (*nptr == '+' || *nptr == '-')
+	len = 0;
+	while ((9 <= nptr[len] && nptr[len] <= 13) || nptr[len] == 32)
+		(void)nptr[len++];
+	if (nptr[len] == '-')
 	{
-		if (*nptr == '-')
-			sign = -1;
-		nptr++;
+		(void)nptr[len++];
+		sign = -1;
 	}
-	while (ft_isdigit(*nptr))
-		result = result * 10 + *nptr++ - '0';
-	return (result * sign);
+	while (ft_isdigit(nptr[len]))
+		result = result * 10 + nptr[len++] - '0';
+	*ret = result * sign;
+	if (result * sign != (int)(result * sign))
+		*ret = -1;
+	return (len + 1);
 }
 
 int	count_params_str(char *s)
@@ -82,7 +86,7 @@ int	get_n_params(char **av)
 	return (n);
 }
 
-t_stack	*parse(int ac, char **av)
+t_stack	*parse(char **av)
 {
 	int		n;
 	int		i;
@@ -96,11 +100,16 @@ t_stack	*parse(int ac, char **av)
 	if (!stack_a)
 		return (NULL);
 	stack_a->stack = malloc(sizeof(int) * n);
+	stack_a->max_len = n;
+	stack_a->len = 0;
+	stack_a->id = 'a';
 	i = 0;
 	len = 0;
 	while (i < n)
-	{
-	}
-	return (NULL);
-	(void)long_atoi;
+		if (*(av[1] + len) != 0)
+		{
+			len += long_atoi(av[1] + len, &stack_a->stack[i]);
+			i++;
+		}
+	return (stack_a);
 }
