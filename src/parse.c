@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 16:14:35 by tlamit            #+#    #+#             */
-/*   Updated: 2025/11/26 23:05:40 by tlamit           ###   ########.fr       */
+/*   Updated: 2025/12/08 14:06:52 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ t_stack	*parse(int ac, char **av)
 {
 	int		n;
 	int		i;
+	int		len;
 	t_stack	*stack_a;
 
 	n = get_n_params(av);
@@ -94,12 +95,11 @@ t_stack	*parse(int ac, char **av)
 	stack_a = malloc(sizeof(t_stack));
 	if (!stack_a)
 		return (NULL);
-	stack_a->stack = malloc(sizeof(int) * n)
+	stack_a->stack = malloc(sizeof(int) * n);
 	i = 0;
+	len = 0;
 	while (i < n)
 	{
-		if (av[1] + i != 0)
-		
 	}
 	return (NULL);
 	(void)long_atoi;
