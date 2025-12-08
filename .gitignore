@@ -5,3 +5,4 @@ visualizer-push-swap
 *.out
 compile_commands.json
 push_swap
+.venv
