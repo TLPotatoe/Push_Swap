@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 16:14:35 by tlamit            #+#    #+#             */
-/*   Updated: 2025/12/11 15:32:46 by tlamit           ###   ########.fr       */
+/*   Updated: 2025/12/11 15:38:07 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,12 +105,11 @@ t_stack	*parse(char **av)
 	i = 0;
 	len = 0;
 	while (i < n)
-		if (*(av[1] + len) != 0)
-		{
-			len += long_atoi(av[1] + len, &stack_a->stack[i]);
-			i++;
-		}
-		else
+	{
+		if (*(av[1] + len) == 0)
 			len++;
+		len += long_atoi(av[1] + len, &stack_a->stack[i]);
+		i++;
+	}
 	return (stack_a);
 }

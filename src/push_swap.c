@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 15:36:58 by tlamit            #+#    #+#             */
-/*   Updated: 2025/12/08 18:11:41 by tlamit           ###   ########.fr       */
+/*   Updated: 2025/12/11 15:26:41 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	main(int ac, char **av)
 	(void)ac;
 	stack_a = parse(av);
 	print_stack(stack_a);
+	// push(NULL, NULL);
 	if (!check_stack_status(stack_a->stack, stack_a->len))
 	{
 		free(stack_a);

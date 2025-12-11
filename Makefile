@@ -6,7 +6,7 @@
 #    By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/13 14:16:18 by fmurat--          #+#    #+#              #
-#    Updated: 2025/12/08 18:06:34 by tlamit           ###   ########.fr        #
+#    Updated: 2025/12/11 15:15:33 by tlamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,10 @@ CC=cc
 SRCS = src/parse.c \
 	src/push_swap.c \
 	src/utils/utils.c \
-	instructions/px.c \
-	instructions/sx.c \
-	instructions/rx.c \
-	instructions/rrx.c 
+	src/instructions/px.c \
+	src/instructions/sx.c \
+	src/instructions/rx.c \
+	src/instructions/rrx.c 
 
 HEADER = -I includes \
 		-I Libft_C/
