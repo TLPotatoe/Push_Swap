@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 16:14:35 by tlamit            #+#    #+#             */
-/*   Updated: 2025/12/12 14:23:02 by tlamit           ###   ########.fr       */
+/*   Updated: 2025/12/12 17:33:53 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,12 +98,10 @@ t_stack	*parse(char **av)
 	n = get_n_params(av);
 	if (n < 1)
 		return (NULL);
-	stack_a = malloc(sizeof(t_stack));
+	stack_a = new_stack(n);
 	if (!stack_a)
-		return (NULL);
-	stack_a->stack = malloc(sizeof(int) * n);
-	stack_a->max_len = n - 1;
-	stack_a->len = n - 1;
+		return (NULL);	
+	stack_a->id = 1;
 	i = 0;
 	len = 0;
 	while (i < n)

@@ -6,26 +6,55 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:30:52 by tlamit            #+#    #+#             */
-/*   Updated: 2025/12/11 15:24:19 by tlamit           ###   ########.fr       */
+/*   Updated: 2025/12/12 18:04:45 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_stack *stack_from2, t_stack *stack_to2)
+static void	slide_left(t_stack *stack)
 {
-	int		i;
-	t_stack	*stack_from;
-	t_stack	*stack_to;
-	int		stack[50] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
-				17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29};
-	stack_from->stack = stack;
-	stack_from->len = 29;
-	if (stack_from->len < 1)
+	int	i;
+
+	i = 0;
+	if (stack->len < 0)
 		return ;
-	i = 0;
-	while (i < stack_from->len)
-		ft_printf("VAL %d\n", stack_from->stack[i++]);
-	i = 0;
-	// while (i < stack_from->len)
+	while (i < stack->len - 1)
+	{
+		stack->stack[i] = stack->stack[i + 1];
+		(void)i++;
+	}
+	if (stack->len > 0)
+		(void)stack->len--;
+}
+
+static void	slide_right(t_stack *stack)
+{
+	int	i;
+
+	if (stack->len == stack->max_len)
+		return ;
+	i = stack->len;
+	while (i > 0)
+	{
+		stack->stack[i] = stack->stack[i - 1];
+		(void)i--;
+	}
+	if (stack->len < stack->max_len)
+		(void)stack->len++;
+}
+
+void	push(t_stack *stack_from, t_stack *stack_to)
+{
+	if (!stack_from || !stack_to)
+		return ;
+	if (stack_from->len == 0 || stack_to->len == stack_to->max_len)
+		return ;
+	slide_right(stack_to);
+	stack_to->stack[0] = stack_from->stack[0];
+	slide_left(stack_from);
+	if (stack_to->id == 1)
+		ft_printf("pa");
+	if (stack_to->id == 2)
+		ft_printf("pb");
 }
