@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 16:14:35 by tlamit            #+#    #+#             */
-/*   Updated: 2025/12/12 14:10:41 by tlamit           ###   ########.fr       */
+/*   Updated: 2025/12/12 14:23:02 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	count_params_str(char *s)
 			flag = 0;
 			s++;
 		}
-		if (*s && *s != ' ')
+		if ((*s && *s != ' ') || (*(s - 1) == '-'))
 			return (-1);
 		while (*s && !ft_isdigit(*s) && *s != '-')
 		{
@@ -92,11 +92,11 @@ t_stack	*parse(char **av)
 {
 	int		n;
 	int		i;
-	int len;
+	int		len;
 	t_stack	*stack_a;
 
 	n = get_n_params(av);
-	if (!n && n == -1)
+	if (n < 1)
 		return (NULL);
 	stack_a = malloc(sizeof(t_stack));
 	if (!stack_a)
