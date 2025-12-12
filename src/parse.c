@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 16:14:35 by tlamit            #+#    #+#             */
-/*   Updated: 2025/12/11 17:45:26 by tlamit           ###   ########.fr       */
+/*   Updated: 2025/12/12 14:10:41 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ static int	long_atoi(const char *nptr, int *ret)
 	*ret = result * sign;
 	if (result * sign != (int)(result * sign))
 		*ret = -1;
-	return (len + 1);
+	while (nptr[len] == ' ')
+		len++;
+	return (len);
 }
 
 int	count_params_str(char *s)
