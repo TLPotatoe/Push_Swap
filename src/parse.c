@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 16:14:35 by tlamit            #+#    #+#             */
-/*   Updated: 2025/12/12 17:33:53 by tlamit           ###   ########.fr       */
+/*   Updated: 2025/12/16 18:15:18 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ t_stack	*parse(char **av)
 		return (NULL);
 	stack_a = new_stack(n);
 	if (!stack_a)
-		return (NULL);	
+		return (NULL);
 	stack_a->id = 1;
 	i = 0;
 	len = 0;

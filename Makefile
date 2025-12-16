@@ -6,42 +6,44 @@
 #    By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/13 14:16:18 by fmurat--          #+#    #+#              #
-#    Updated: 2025/12/11 17:37:14 by tlamit           ###   ########.fr        #
+#    Updated: 2025/12/16 18:00:18 by tlamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC=cc
+CC := cc
 
-SRCS = src/parse.c \
+SRCS := src/parse.c \
 	src/push_swap.c \
 	src/utils/utils.c \
 	src/instructions/px.c \
 	src/instructions/sx.c \
 	src/instructions/rx.c \
-	src/instructions/rrx.c 
+	src/instructions/rrx.c \
+	src/instructions/utils.c
 
-HEADER = -I includes \
-		-I Libft_C/
+HEADER := -I includes \
+		-I Libft_C
 
 ifndef DEBUG
-	CFLAGS = -Wall -Wextra -Werror -g $(HEADER)
+	CFLAGS := -Wall -Wextra -Werror -g $(HEADER)
 else
-	CFLAGS = -g $(HEADER)
+	CFLAGS := -g $(HEADER)
 endif
 
-NAME = push_swap
-LIBFT = Libft_C/libft.a
-LDFLAGS = $(LIBFT)
+NAME := push_swap
+LIBFT := Libft_C/libft.a
 
-OBJS = $(SRCS:.c=.o)
+LIBS := $(LIBFT)
+
+OBJS := $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(OBJS) $(LDFLAGS) -o $(NAME)
+$(NAME): $(OBJS) $(LIBS)
+	$(CC) $(OBJS) $(LIBS) -o $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $<
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT):
 	$(MAKE) -C Libft_C

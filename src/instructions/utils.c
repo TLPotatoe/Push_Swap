@@ -1,28 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rx.c                                               :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 18:00:56 by tlamit            #+#    #+#             */
-/*   Updated: 2025/12/16 18:16:03 by tlamit           ###   ########.fr       */
+/*   Created: 2025/12/16 17:59:50 by tlamit            #+#    #+#             */
+/*   Updated: 2025/12/16 18:15:51 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate(t_stack *stack)
+void	slide_left(t_stack *stack)
 {
-	int	temp;
+	int	i;
 
-	temp = stack->stack[0];
-	slide_left(stack);
-	stack->stack[stack->len] = temp;
+	i = 0;
+	if (stack->len < 0)
+		return ;
+	while (i < stack->len - 1)
+	{
+		stack->stack[i] = stack->stack[i + 1];
+		(void)i++;
+	}
+	if (stack->len > 0)
+		(void)stack->len--;
+}
+
+void	slide_right(t_stack *stack)
+{
+	int	i;
+
+	if (stack->len == stack->max_len)
+		return ;
+	i = stack->len;
+	while (i > 0)
+	{
+		stack->stack[i] = stack->stack[i - 1];
+		(void)i--;
+	}
 	if (stack->len < stack->max_len)
-		stack->len++;
-	if (stack->id == 1)
-		ft_printf("ra\n");
-	else if (stack->id == 2)
-		ft_printf("rb\n");
+		(void)stack->len++;
 }
