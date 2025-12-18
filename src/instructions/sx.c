@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 15:37:48 by tlamit            #+#    #+#             */
-/*   Updated: 2025/12/16 18:12:24 by tlamit           ###   ########.fr       */
+/*   Updated: 2025/12/18 17:29:57 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,16 @@
 
 void	swap(t_stack *stack)
 {
-	int	temp;
-
-	if (stack->len < 1)
+	if (!stack)
 		return ;
-	temp = stack->stack[stack->len];
-	stack->stack[stack->len] = stack->stack[stack->len - 1];
-	stack->stack[stack->len - 1] = temp;
-}
-
-void	swap_x(t_stack *stack_a)
-{
-	if (!stack_a)
+	if (stack->len < 2)
 		return ;
-	swap(stack_a);
-	if (stack_a->id == 1)
+	stack->stack[0] ^= stack->stack[1];
+	stack->stack[1] ^= stack->stack[0];
+	stack->stack[0] ^= stack->stack[1];
+	if (stack->id == 1)
 		ft_printf("sa\n");
-	else if (stack_a->id == 2)
+	else if (stack->id == 2)
 		ft_printf("sb\n");
 }
 
