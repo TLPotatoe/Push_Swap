@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 15:36:58 by tlamit            #+#    #+#             */
-/*   Updated: 2025/12/18 18:29:54 by tlamit           ###   ########.fr       */
+/*   Updated: 2025/12/18 18:45:48 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	main(int ac, char **av)
 	if (!stack_a)
 		return (1);
 	free_to_exit(0, stack_a, NULL);
-	print_stack(stack_a, NULL);
+	// print_stack(stack_a, NULL);
 	if (check_stack_status(stack_a))
 	{
 		free_to_exit(-1, NULL, NULL);
@@ -73,6 +73,14 @@ int	main(int ac, char **av)
 	stack_b->len = 0;
 	stack_b->id = 2;
 	free_to_exit(0, NULL, stack_b);
+	print_stack(stack_a, stack_b);
+	push(stack_b, stack_a);
+	push(stack_b, stack_a);
+	push(stack_b, stack_a);
+	push(stack_b, stack_a);
+	push(stack_b, stack_a);
+	push(stack_b, stack_a);
+	push(stack_b, stack_a);
 	print_stack(stack_a, stack_b);
 	free_to_exit(-1, NULL, NULL);
 }
