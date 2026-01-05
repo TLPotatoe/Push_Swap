@@ -6,7 +6,7 @@
 #    By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/13 14:16:18 by fmurat--          #+#    #+#              #
-#    Updated: 2025/12/16 18:00:18 by tlamit           ###   ########.fr        #
+#    Updated: 2026/01/05 19:39:07 by tlamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ $(NAME): $(OBJS) $(LIBS)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT):
-	$(MAKE) -C Libft_C
+	$(MAKE) -C Libft_C -j
 
 clean:
 	rm -f $(OBJS)
