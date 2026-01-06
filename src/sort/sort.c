@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rrx.c                                              :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/18 17:40:55 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/06 18:08:48 by tlamit           ###   ########.fr       */
+/*   Created: 2026/01/06 19:13:09 by tlamit            #+#    #+#             */
+/*   Updated: 2026/01/06 19:24:50 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	r_rotate(t_stack *stack)
+void	sort_main(t_stack *stack_a, t_stack *stack_b)
 {
-	int	temp;
+	int *cost_list;
 
-	if (!stack)
-		return ;
-	temp = stack->stack[stack->len - 1];
-	slide_right(stack);
-	stack->len--;
-	stack->stack[0] = temp;
-	if (stack->id == 1)
-		ft_printf("ra\n");
-	else if (stack->id == 2)
-		ft_printf("rb\n");
-}
+	cost_list = malloc(sizeof(int) * stack_a->max_len);
+	sort_1(stack_a, stack_b);
+	evaluate_cost(stack_a, stack_b, cost_list);
+	sort_2(stack_a, stack_b, cost_list);
 
-void	r_rotate_both(t_stack *stack_a, t_stack *stack_b)
-{
-	if (stack_a->len == 0 || stack_b->len == 0)
-		return ;
-	rotate(stack_a);
-	rotate(stack_b);
-	ft_printf("rr\n");
+	free(cost_list);
 }

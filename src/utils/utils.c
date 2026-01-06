@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 22:40:32 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/06 17:45:50 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/06 19:17:25 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,25 +67,34 @@ int	get_max(t_stack *stack)
 	return (max);
 }
 
-int	next_target(t_stack *stack_a, t_stack *stack_b)
+int	get_min(t_stack *stack)
 {
-	int	index;
-	int	target;
+	int	i;
+	int	min;
 
-	index = 0;
-	target = get_max(stack_a);
-	while (index < stack_a->len)
+	i = 0;
+	min = stack->stack[0];
+	while (i < stack->len)
 	{
-		if (stack_a->stack[index] >= stack_b->stack[0]
-			&& stack_a->stack[index] < target)
-			target = stack_a->stack[index];
-		ft_printf("%d\n", stack_a->stack[index]);
-		index++;
+		if (stack->stack[i] < min)
+			min = stack->stack[i];
+		i++;
 	}
-	index = 0;
-	while (index < stack_a->len && stack_a->stack[index] != target)
-		index++;
-	return (index);
+	return (min);
+}
+
+int	value_in_struct(t_stack *stack, int value)
+{
+	int	i;
+
+	i = 0;
+	while (i < stack->len)
+	{
+		if (stack->stack[i] == value)
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
 void	print_stack(t_stack *stack_a, t_stack *stack_b)

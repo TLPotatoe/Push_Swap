@@ -6,7 +6,7 @@
 #    By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/13 14:16:18 by fmurat--          #+#    #+#              #
-#    Updated: 2026/01/06 16:16:44 by tlamit           ###   ########.fr        #
+#    Updated: 2026/01/06 19:25:03 by tlamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,11 +21,13 @@ SORT_DIR 	= $(SRCS_DIR)/sort
 SRCS = $(SRCS_DIR)/push_swap.c \
        $(UTILS_DIR)/parse.c \
        $(UTILS_DIR)/utils.c \
+       $(UTILS_DIR)/utils_2.c \
        $(INSTRU_DIR)/px.c \
        $(INSTRU_DIR)/sx.c \
        $(INSTRU_DIR)/rx.c \
        $(INSTRU_DIR)/rrx.c \
        $(INSTRU_DIR)/utils.c \
+	   $(SORT_DIR)/sort.c \
 	   $(SORT_DIR)/sort_1.c
 
 

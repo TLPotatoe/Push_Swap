@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 15:36:58 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/06 16:07:51 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/06 19:16:57 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,6 @@ int	main(int ac, char **av)
 	stack_b->len = 0;
 	stack_b->id = 2;
 	free_to_exit(0, NULL, stack_b);
-	sort_1(stack_a, stack_b);
+	sort_main(stack_a, stack_b);
 	free_to_exit(-1, NULL, NULL);
 }
