@@ -6,20 +6,28 @@
 #    By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/13 14:16:18 by fmurat--          #+#    #+#              #
-#    Updated: 2026/01/05 19:39:07 by tlamit           ###   ########.fr        #
+#    Updated: 2026/01/06 16:16:44 by tlamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC := cc
 
-SRCS := src/parse.c \
-	src/push_swap.c \
-	src/utils/utils.c \
-	src/instructions/px.c \
-	src/instructions/sx.c \
-	src/instructions/rx.c \
-	src/instructions/rrx.c \
-	src/instructions/utils.c
+SRCS_DIR    = src
+UTILS_DIR   = $(SRCS_DIR)/utils
+INSTRU_DIR  = $(SRCS_DIR)/instructions
+SORT_DIR 	= $(SRCS_DIR)/sort
+
+
+SRCS = $(SRCS_DIR)/push_swap.c \
+       $(UTILS_DIR)/parse.c \
+       $(UTILS_DIR)/utils.c \
+       $(INSTRU_DIR)/px.c \
+       $(INSTRU_DIR)/sx.c \
+       $(INSTRU_DIR)/rx.c \
+       $(INSTRU_DIR)/rrx.c \
+       $(INSTRU_DIR)/utils.c \
+	   $(SORT_DIR)/sort_1.c
+
 
 HEADER := -I includes \
 		-I Libft_C

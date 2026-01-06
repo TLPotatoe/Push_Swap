@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rrx.c                                              :+:      :+:    :+:   */
+/*   sort_1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/18 17:40:55 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/06 16:07:09 by tlamit           ###   ########.fr       */
+/*   Created: 2026/01/06 16:02:35 by tlamit            #+#    #+#             */
+/*   Updated: 2026/01/06 17:49:45 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	r_rotate(t_stack *stack)
+void	sort_1(t_stack *stack_a, t_stack *stack_b)
 {
-	int	temp;
-
-	if (!stack)
-		return ;
-	temp = stack->stack[stack->len - 1];
-	slide_right(stack);
-	stack->stack[0] = temp;
-	if (stack->id == 1)
-		ft_printf("ra\n");
-	else if (stack->id == 2)
-		ft_printf("rb\n");
-}
-
-void	r_rotate_both(t_stack *stack_a, t_stack *stack_b)
-{
-	if (stack_a->len == 0 || stack_b->len == 0)
-		return ;
-	rotate(stack_a);
-	rotate(stack_b);
-	ft_printf("rr\n");
+	print_stack(stack_a, stack_b);
+	while (stack_a->len > 3)
+		push(stack_a, stack_b);
+	print_stack(stack_a, stack_b);
+	while (!next_target(stack_a, stack_b) && stack_b->len)
+	{
+		ft_printf("Tar A I:%d", next_target(stack_a, stack_b));
+		push(stack_b, stack_a);
+		print_stack(stack_a, stack_b);
+	}
+	// print_stack(stack_a, stack_b);
 }

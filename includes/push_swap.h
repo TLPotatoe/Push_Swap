@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 15:49:33 by tlamit            #+#    #+#             */
-/*   Updated: 2025/12/18 17:59:44 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/06 17:01:04 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,11 @@ void		rotate_both(t_stack *stack_a, t_stack *stack_b);
 void		r_rotate(t_stack *stack);
 void		r_rotate_both(t_stack *stack_a, t_stack *stack_b);
 
-
 void		slide_left(t_stack *stack);
 void		slide_right(t_stack *stack);
+
+void		sort_1(t_stack *stack_a, t_stack *stack_b);
+int			next_target(t_stack *stack_a, t_stack *stack_b);
 
 void		free_to_exit(int status, t_stack *stack_a, t_stack *stack_b);
 
