@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 22:40:32 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/07 19:07:34 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/07 19:35:54 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ void	print_stack(t_stack *stack_a, t_stack *stack_b)
 	int	bar;
 
 	i = 0;
-	ft_printf("\n\nPRINT\n--------------\n");
+	ft_printf("\nPRINT\n--------------\n");
 	if (stack_a->len < 1)
 		ft_printf("StackA Empty %d\n", stack_a->len);
 	while (i < stack_a->len)

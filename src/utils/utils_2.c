@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 19:17:42 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/07 19:13:32 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/07 19:42:42 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,18 +56,4 @@ int	next_target(t_stack *stack_a, int origin)
 		i++;
 	}
 	return (target_i);
-}
-
-int	cost_top(t_stack *stack, int itarget)
-{
-	if (itarget <= stack->len / 2)
-		return (itarget);
-	else
-		return (stack->len - itarget);
-}
-
-int	total_cost(t_stack *stack_a, t_stack *stack_b, int i)
-{
-	return (cost_top(stack_b, i) + cost_top(stack_a, next_target(stack_a,
-				stack_b->stack[i])));
 }
