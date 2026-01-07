@@ -6,11 +6,25 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 22:40:32 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/07 16:51:18 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/07 19:07:34 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	value_in_struct(t_stack *stack, int value)
+{
+	int	i;
+
+	i = 0;
+	while (i < stack->len)
+	{
+		if (stack->stack[i] == value)
+			return (1);
+		i++;
+	}
+	return (0);
+}
 
 char	*ft_strcharset(char *s1, char *charset)
 {
@@ -107,20 +121,6 @@ int	get_min(t_stack *stack_a, t_stack *stack_b)
 	if (min_a < min_b)
 		return (min_a);
 	return (min_b);
-}
-
-int	value_in_struct(t_stack *stack, int value)
-{
-	int	i;
-
-	i = 0;
-	while (i < stack->len)
-	{
-		if (stack->stack[i] == value)
-			return (1);
-		i++;
-	}
-	return (0);
 }
 
 void	print_stack(t_stack *stack_a, t_stack *stack_b)

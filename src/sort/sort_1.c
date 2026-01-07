@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:02:35 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/07 17:22:18 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/07 19:14:40 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,14 @@ void	sort_1(t_stack *stack_a, t_stack *stack_b)
 	print_stack(stack_a, stack_b);
 }
 
-// while (!next_target(stack_a, stack_b->stack[0]) && stack_b->len)
-// {
-// 	ft_printf("Tar A I:%d\n", next_target(stack_a, stack_b->stack[0]));
-// 	push(stack_b, stack_a);
-// 	print_stack(stack_a, stack_b);
-// }
-
-void	sort_2(t_stack *stack_a, t_stack *stack_b, int *cost_list)
+void	cheapest(t_stack *stack_a, t_stack *stack_b)
 {
-	(void)stack_a;
-	(void)stack_b;
-	(void)cost_list;
+	int	i;
+	int	min_cost;
+
+	min_cost = 2147483647;
+	i = 0;
+	while (i < stack_b->len)
+		if (total_cost(stack_a, stack_b, i) < min_cost)
+			min_cost = total_cost(stack_a, stack_b, i++);
 }

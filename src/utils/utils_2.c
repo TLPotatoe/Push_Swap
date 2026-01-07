@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 19:17:42 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/07 18:44:50 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/07 19:13:32 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	next_target(t_stack *stack_a, int origin)
 	return (target_i);
 }
 
-static int	cost_top(t_stack *stack, int itarget)
+int	cost_top(t_stack *stack, int itarget)
 {
 	if (itarget <= stack->len / 2)
 		return (itarget);
@@ -66,25 +66,8 @@ static int	cost_top(t_stack *stack, int itarget)
 		return (stack->len - itarget);
 }
 
-// i = -1;
-// while (++i < stack_b->len)
-// 	ft_printf("TL B: %d INDEX: %d VALUE:%d\n", stack_b->stack[i],
-// 		target_list[i], stack_a->stack[next_target(stack_a,
-// 			stack_b->stack[i])]);
-
-void	bring_top(t_stack *stack_a, t_stack *stack_b)
+int	total_cost(t_stack *stack_a, t_stack *stack_b, int i)
 {
-	int	i;
-	int	min_index;
-	int	min_cost;
-
-	i = -1;
-	while (++i < stack_b->len)
-	{
-		ft_printf("%d %d %d %d %d\n", stack_b->stack[i], cost_top(stack_b, i),
-			stack_a->stack[next_target(stack_a, stack_b->stack[i])],
-			cost_top(stack_a, next_target(stack_a, stack_b->stack[i])),
-			cost_top(stack_b, i) + cost_top(stack_a, next_target(stack_a,
-					stack_b->stack[i])));
-	}
+	return (cost_top(stack_b, i) + cost_top(stack_a, next_target(stack_a,
+				stack_b->stack[i])));
 }

@@ -14,3 +14,10 @@ if __name__ == '__main__':
     
     # https://vscza.itch.io/push-swap
     # https://pure-forest.medium.com/push-swap-turk-algorithm-explained-in-6-steps-4c6650a458c0
+    
+    # cheapest
+    # ft_printf("%d %d %d %d %d\n", stack_b->stack[i], cost_top(stack_b, i),
+    # 	stack_a->stack[next_target(stack_a, stack_b->stack[i])],
+    # 	cost_top(stack_a, next_target(stack_a, stack_b->stack[i])),
+    # 	cost_top(stack_b, i) + cost_top(stack_a, next_target(stack_a,
+    # 			stack_b->stack[i])));
