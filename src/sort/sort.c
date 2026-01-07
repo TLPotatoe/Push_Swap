@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 19:13:09 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/07 17:16:06 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/07 18:45:03 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 void	sort_main(t_stack *stack_a, t_stack *stack_b)
 {
-	int *cost_list;
+	int	*cost_list;
 
-	cost_list = malloc(sizeof(int) * stack_a->max_len);
 	sort_1(stack_a, stack_b);
-	evaluate_cost(stack_a, stack_b, cost_list);
+	bring_top(stack_a, stack_b);
+	print_stack(stack_a, stack_b);
 	sort_2(stack_a, stack_b, cost_list);
-
-	free(cost_list);
 }

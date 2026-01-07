@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:02:35 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/07 15:53:25 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/07 17:22:18 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,15 @@ void	sort_1(t_stack *stack_a, t_stack *stack_b)
 		r_rotate(stack_a);
 	if (stack_a->stack[0] > stack_a->stack[1])
 		swap(stack_a);
-	// while (!next_target(stack_a, stack_b->stack[0]) && stack_b->len)
-	// {
-	// 	ft_printf("Tar A I:%d\n", next_target(stack_a, stack_b->stack[0]));
-	// 	push(stack_b, stack_a);
-	// 	print_stack(stack_a, stack_b);
-	// }
 	print_stack(stack_a, stack_b);
 }
+
+// while (!next_target(stack_a, stack_b->stack[0]) && stack_b->len)
+// {
+// 	ft_printf("Tar A I:%d\n", next_target(stack_a, stack_b->stack[0]));
+// 	push(stack_b, stack_a);
+// 	print_stack(stack_a, stack_b);
+// }
 
 void	sort_2(t_stack *stack_a, t_stack *stack_b, int *cost_list)
 {
