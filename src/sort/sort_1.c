@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:02:35 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/06 19:19:02 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/07 15:53:25 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,7 @@ void	sort_1(t_stack *stack_a, t_stack *stack_b)
 
 void	sort_2(t_stack *stack_a, t_stack *stack_b, int *cost_list)
 {
+	(void)stack_a;
+	(void)stack_b;
+	(void)cost_list;
 }

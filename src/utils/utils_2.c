@@ -6,45 +6,54 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 19:17:42 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/06 19:27:28 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/07 17:15:01 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	next_target(t_stack *stack_a, int origin)
-{
-	int	index;
-	int	target;
-
-	index = 0;
-	target = get_max(stack_a);
-	while (index < stack_a->len)
-	{
-		if (stack_a->stack[index] >= origin && stack_a->stack[index] < target)
-			target = stack_a->stack[index];
-		index++;
-	}
-	index = 0;
-	while (index < stack_a->len && stack_a->stack[index] != target)
-		index++;
-	return (index);
-}
-
-void	evaluate_cost(t_stack *stack_a, t_stack *stack_b, int *cost_list)
+int	find_index(t_stack *stack, int value)
 {
 	int	i;
-	int	j;
-	int	target;
 
-	while (i < stack_a->max_len)
+	i = 0;
+	while (i < stack->len)
 	{
-		cost_list[i] = next_target(stack_a, stack_b->stack[i]);
+		if (stack->stack[i] == value)
+			return (i);
 		i++;
 	}
-	for (int i = 0; i < stack_a->max_len; i++)
+	return (-1);
+}
+
+int	next_target(t_stack *stack_a, int origin)
+{
+	int	i;
+	int	target;
+
+	target = get_max(stack_a, NULL);
+	if (origin > target)
+		return (find_index(stack_a, get_min(stack_a, NULL)));
+	i = 0;
+	while (i < stack_a->len)
 	{
-		ft_printf("%d ", cost_list[i]);
+		if (stack_a->stack[i] >= origin && stack_a->stack[i] <= target)
+			target = stack_a->stack[i];
+		i++;
 	}
-	ft_printf("\n");
+	return (find_index(stack_a, target));
+}
+
+void	evaluate_cost(t_stack *stack_a, t_stack *stack_b, int *target_list)
+{
+	int	i;
+
+	i = 0;
+	while (i < stack_b->len)
+	{
+		target_list[i] = next_target(stack_a, stack_b->stack[i]);
+		ft_printf("TARGET FOR A:%d <- %d\n", stack_a->stack[target_list[i]],
+			stack_b->stack[i]);
+		i++;
+	}
 }
