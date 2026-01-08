@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 15:49:33 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/07 19:21:38 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/08 17:05:38 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "libft.h"
 # include <stdlib.h>
 # include <unistd.h>
+
+# define INT_MAX 2147483647
 
 typedef struct s_stack
 {

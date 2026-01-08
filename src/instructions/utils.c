@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 17:59:50 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/05 19:24:07 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/08 16:43:44 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ void	slide_right(t_stack *stack)
 		stack->stack[i] = stack->stack[i - 1];
 		(void)i--;
 	}
-	if (stack->len < stack->max_len)
+	if (stack->len <= stack->max_len)
 		(void)stack->len++;
 }

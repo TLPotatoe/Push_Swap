@@ -1,15 +1,26 @@
 import os
+import sys
 import random
 
+def gen_numbers(min: int, max: int, n: int) -> list[int]:
+    numbers = []
+    while (len(numbers) <= n):
+        num = random.randint(min, max)
+        if not num in numbers:
+            numbers.append(num)
+    return numbers
+
 def main():
+    if len(sys.argv) < 2:
+        sys.argv.append("10")
     command = os.path.dirname(__file__) + "/push_swap"
-    for i in range(20):
-        if i % 2:
-            command += " " + str(random.randint(1, 9))
-    print(command)
+    for num in gen_numbers(1, 20, int(sys.argv[1])):
+        command += " " + str(num)
+    print(command[command.find("./"):])
     os.system(command)
 
 if __name__ == '__main__':
+    os.system("clear" if sys.platform == "linux" else "cls")
     main()
     
     # https://vscza.itch.io/push-swap

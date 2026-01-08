@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 16:14:35 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/06 16:07:54 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/08 17:31:53 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,5 +111,5 @@ t_stack	*parse(char **av)
 		else
 			len++;
 	}
-	return (stack_a);
+	return (stack_a); 
 }
