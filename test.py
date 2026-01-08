@@ -16,7 +16,7 @@ def main():
     if len(sys.argv) < 2:
         sys.argv.append("10")
     command = os.path.dirname(__file__) + "/push_swap"
-    for num in gen_numbers(1, 15000, int(sys.argv[1])):
+    for num in gen_numbers(1, int(sys.argv[1]), int(sys.argv[1])):
         command += " " + str(num)
     if "print" in sys.argv:
         print(command[command.find("./"):])

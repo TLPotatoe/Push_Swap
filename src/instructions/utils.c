@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 17:59:50 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/08 16:43:44 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/08 20:27:15 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	slide_right(t_stack *stack)
 	int	i;
 
 	i = stack->len;
+	if (i == stack->max_len)
+		i = stack->max_len - 1;
 	while (i > 0)
 	{
 		stack->stack[i] = stack->stack[i - 1];
