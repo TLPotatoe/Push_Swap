@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:02:35 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/08 18:27:35 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/08 19:08:25 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,11 @@ void	cheapest(t_stack *stack_a, t_stack *stack_b)
 	min_cost = INT_MAX;
 	i = 0;
 	while (i < stack_b->len)
+	{
 		if (total_cost(stack_a, stack_b, i) < min_cost)
-			min_cost = total_cost(stack_a, stack_b, i++);
+			min_cost = total_cost(stack_a, stack_b, i);
+		i++;
+	}
 	i = 0;
 	while (total_cost(stack_a, stack_b, i) != min_cost)
 		i++;
