@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 14:30:52 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/08 16:46:03 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/08 18:25:06 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,4 @@ void	push(t_stack *stack_from, t_stack *stack_to)
 		ft_printf("pa\n");
 	if (stack_to->id == 2)
 		ft_printf("pb\n");
-	ft_printf("push %d\n", stack_to->stack[0]);
 }

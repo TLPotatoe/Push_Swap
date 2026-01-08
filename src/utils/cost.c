@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 19:19:58 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/08 17:21:36 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/08 18:24:03 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	cost_top(t_stack *stack, int itarget)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = itarget;
 	j = itarget;

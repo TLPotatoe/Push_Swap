@@ -3,6 +3,7 @@ visualizer-push-swap
 *.a
 *.o
 *.out
+*.txt
 compile_commands.json
 push_swap
 .venv

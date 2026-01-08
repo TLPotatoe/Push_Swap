@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 15:36:58 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/08 17:42:54 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/08 18:23:40 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	check_stack_status(t_stack *stack)
 			if (stack->stack[i] == stack->stack[j++])
 				return (1);
 		i++;
-	}	
+	}
 	return (0);
 }
 

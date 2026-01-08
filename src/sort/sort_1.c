@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 16:02:35 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/08 17:21:04 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/08 18:27:35 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ static void	align_stacks(t_stack *stack_a, t_stack *stack_b, int i)
 	c_b = cost_b(stack_b, i);
 	while (c_a--)
 	{
-		if (find_index(stack_a, stack_a->stack[next_target(stack_a, stack_b->stack[i])]) <= stack_a->len / 2)
+		if (find_index(stack_a, stack_a->stack[
+					next_target(stack_a, stack_b->stack[i])])
+			<= stack_a->len / 2)
 			rotate(stack_a);
 		else
 			r_rotate(stack_a);
@@ -55,19 +57,9 @@ void	cheapest(t_stack *stack_a, t_stack *stack_b)
 
 	min_cost = INT_MAX;
 	i = 0;
-	ft_printf("B C T C T\n");
 	while (i < stack_b->len)
-	{
-		ft_printf("%d %d %d %d %d\n",
-			stack_b->stack[i],
-			cost_top(stack_b, i),
-			stack_a->stack[next_target(stack_a, stack_b->stack[i])],
-			cost_top(stack_a, next_target(stack_a, stack_b->stack[i])),
-			cost_top(stack_b, i) + cost_top(stack_a, next_target(stack_a, stack_b->stack[i])));
 		if (total_cost(stack_a, stack_b, i) < min_cost)
-			min_cost = total_cost(stack_a, stack_b, i);
-		i++;
-	}
+			min_cost = total_cost(stack_a, stack_b, i++);
 	i = 0;
 	while (total_cost(stack_a, stack_b, i) != min_cost)
 		i++;

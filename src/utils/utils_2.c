@@ -6,29 +6,29 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 19:17:42 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/08 17:20:18 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/08 18:24:54 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int find_index(t_stack *stack, int value)
+int	find_index(t_stack *stack, int value)
 {
-    int i;
-    int end_index;
+	int	i;
+	int	end_index;
 
-    i = 0;
-    while (i <= stack->len / 2)
-    {
-        if (stack->stack[i] == value)
-            return (i);
-        end_index = (stack->len - 1) - i;
-        if (stack->stack[end_index] == value)
-            return (end_index);
-        i++;
-    }
-    ft_printf("WARNING: VALUE NOT FOUND: %d\n", value);
-    return (-1); 
+	i = 0;
+	while (i <= stack->len / 2)
+	{
+		if (stack->stack[i] == value)
+			return (i);
+		end_index = (stack->len - 1) - i;
+		if (stack->stack[end_index] == value)
+			return (end_index);
+		i++;
+	}
+	ft_printf("WARNING: VALUE NOT FOUND: %d\n", value);
+	return (-1);
 }
 
 int	next_target(t_stack *stack_a, int origin)
