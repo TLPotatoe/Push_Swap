@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 15:36:58 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/09 14:30:42 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/09 18:06:57 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static int	check_stack_status(t_stack *stack)
 	int	i;
 	int	j;
 
+	if (!stack)
+		return (1);
 	i = 0;
 	while (i < stack->max_len)
 	{
@@ -62,10 +64,9 @@ int	main(int ac, char **av)
 	t_stack	*stack_b;
 
 	(void)ac;
-	stack_a = parse(av);
-	if (!stack_a)
-		return (1);
-	free_to_exit(0, stack_a, NULL);
+	stack_a = parse(ac, av);
+	if (stack_a)
+		free_to_exit(0, stack_a, NULL);
 	if (check_stack_status(stack_a))
 	{
 		ft_printf("Error\n");

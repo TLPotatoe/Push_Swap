@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 16:14:35 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/09 14:30:50 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/09 17:57:47 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,13 +88,33 @@ int	get_n_params(char **av)
 	return (n);
 }
 
-t_stack	*parse(char **av)
+static int	null_check(int ac, char **av)
+{
+	int	i;
+	int	len;
+
+	i = 1;
+	while (i < ac)
+	{
+		len = 0;
+		while ((av[i])[len])
+			len++;
+		if (!len)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+t_stack	*parse(int ac, char **av)
 {
 	int		n;
 	int		i;
 	int		len;
 	t_stack	*stack_a;
 
+	if (null_check(ac, av))
+		return (NULL);
 	n = get_n_params(av);
 	if (n < 1)
 		return (NULL);
@@ -113,3 +133,4 @@ t_stack	*parse(char **av)
 	}
 	return (stack_a);
 }
+// if (*(av[1] + len + 1) == 0)

@@ -6,7 +6,7 @@
 #    By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/13 14:16:18 by fmurat--          #+#    #+#              #
-#    Updated: 2026/01/07 19:20:27 by tlamit           ###   ########.fr        #
+#    Updated: 2026/01/09 18:13:44 by tlamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ SRCS = $(SRCS_DIR)/push_swap.c \
        $(INSTRU_DIR)/rrx.c \
        $(INSTRU_DIR)/utils.c \
 	   $(SORT_DIR)/sort.c \
-	   $(SORT_DIR)/sort_1.c
+	   $(SORT_DIR)/sort_utils.c
 
 
 HEADER := -I includes \

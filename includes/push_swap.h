@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 15:49:33 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/09 16:04:38 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/09 17:44:01 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_stack
 	char	id;
 }			t_stack;
 
-t_stack		*parse(char **av);
+t_stack		*parse(int ac, char **av);
 t_stack		*new_stack(int len);
 
 char		*ft_strcharset(char *s1, char *charset);
