@@ -6,70 +6,23 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 15:36:58 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/09 18:06:57 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/12 16:18:19 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static int	check_stack_status(t_stack *stack)
-{
-	int	i;
-	int	j;
-
-	if (!stack)
-		return (1);
-	i = 0;
-	while (i < stack->max_len)
-	{
-		if (stack->stack[i] == -1)
-			return (1);
-		j = i + 1;
-		while (j < stack->max_len)
-			if (stack->stack[i] == stack->stack[j++])
-				return (1);
-		i++;
-	}
-	return (0);
-}
-
-void	free_to_exit(int status, t_stack *stack_a, t_stack *stack_b)
-{
-	static t_stack	*s_stack_a;
-	static t_stack	*s_stack_b;
-
-	if (stack_a)
-		s_stack_a = stack_a;
-	if (stack_b)
-		s_stack_b = stack_b;
-	if (status == -1 && s_stack_a)
-	{
-		free(s_stack_a->stack);
-		s_stack_a->stack = NULL;
-		free(s_stack_a);
-		s_stack_a = NULL;
-	}
-	if (status == -1 && s_stack_b)
-	{
-		free(s_stack_b->stack);
-		s_stack_b->stack = NULL;
-		free(s_stack_b);
-		s_stack_b = NULL;
-	}
-}
 
 int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
-	(void)ac;
 	stack_a = parse(ac, av);
 	if (stack_a)
 		free_to_exit(0, stack_a, NULL);
 	if (check_stack_status(stack_a))
 	{
-		ft_printf("Error\n");
+		write(2, "Error\n", 6);
 		free_to_exit(-1, NULL, NULL);
 		return (1);
 	}

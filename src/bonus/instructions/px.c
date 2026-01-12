@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   px.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/18 21:42:10 by tlamit            #+#    #+#             */
-/*   Updated: 2025/11/19 15:05:46 by tlamit           ###   ########.fr       */
+/*   Created: 2025/12/08 14:30:52 by tlamit            #+#    #+#             */
+/*   Updated: 2026/01/12 15:52:26 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
-#include "stdio.h"
+#include "push_swap.h"
 
-int	main(void)
+int	push_bonus(t_stack *stack_from, t_stack *stack_to)
 {
-	int		fd;
-	char	*line;
-
-	fd = open("file.txt", O_RDONLY);
-	while (1)
-	{
-		line = get_next_line(fd);
-		if (!line)
-			break ;
-		printf("->%s", line);
-		free(line);
-	}
-	close(fd);
+	if (!stack_from || !stack_to)
+		return (2);
+	if (stack_from->len == 0 || stack_to->len == stack_to->max_len)
+		return (2);
+	slide_right(stack_to);
+	stack_to->stack[0] = stack_from->stack[0];
+	slide_left(stack_from);
+	return (2);
 }

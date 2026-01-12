@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 19:17:42 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/09 14:30:52 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/12 13:09:44 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,50 @@ int	next_target(t_stack *stack_a, int origin)
 		i++;
 	}
 	return (find_index(stack_a, target_v));
+}
+
+int	check_stack_status(t_stack *stack)
+{
+	int	i;
+	int	j;
+
+	if (!stack)
+		return (1);
+	i = 0;
+	while (i < stack->max_len)
+	{
+		if (stack->stack[i] == -1)
+			return (1);
+		j = i + 1;
+		while (j < stack->max_len)
+			if (stack->stack[i] == stack->stack[j++])
+				return (1);
+		i++;
+	}
+	return (0);
+}
+
+void	free_to_exit(int status, t_stack *stack_a, t_stack *stack_b)
+{
+	static t_stack *s_stack_a;
+	static t_stack *s_stack_b;
+
+	if (stack_a)
+		s_stack_a = stack_a;
+	if (stack_b)
+		s_stack_b = stack_b;
+	if (status == -1 && s_stack_a)
+	{
+		free(s_stack_a->stack);
+		s_stack_a->stack = NULL;
+		free(s_stack_a);
+		s_stack_a = NULL;
+	}
+	if (status == -1 && s_stack_b)
+	{
+		free(s_stack_b->stack);
+		s_stack_b->stack = NULL;
+		free(s_stack_b);
+		s_stack_b = NULL;
+	}
 }
