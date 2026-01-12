@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 19:13:09 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/12 15:56:41 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/12 17:59:36 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,8 @@ void	sort_main(t_stack *stack_a, t_stack *stack_b)
 	sort_1(stack_a, stack_b);
 	while (stack_b->len > 0)
 		cheapest(stack_a, stack_b);
-	while (cost_top(stack_a, find_index(stack_a, get_min(stack_a, NULL))))
+	while (find_index(stack_a, get_min(stack_a, NULL)))
 	{
-		if (find_index(stack_a, get_min(stack_a, NULL)) == 0
-			&& find_index(stack_a, get_max(stack_a, NULL)) == stack_a->max_len)
-			break ;
 		if (find_index(stack_a, get_min(stack_a, NULL)) <= stack_a->len / 2)
 			rotate(stack_a);
 		else

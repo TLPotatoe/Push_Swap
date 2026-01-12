@@ -6,7 +6,7 @@
 #    By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/13 14:16:18 by fmurat--          #+#    #+#              #
-#    Updated: 2026/01/12 15:43:20 by tlamit           ###   ########.fr        #
+#    Updated: 2026/01/12 19:02:12 by tlamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC := cc
 SRCS_DIR    = src
 UTILS_DIR   = $(SRCS_DIR)/utils
 INSTRU_DIR  = $(SRCS_DIR)/instructions
-INSTRU_BONUS_DIR = $(SRCS_DIR)/bonus/instructions
+INSTRU_BONUS_DIR = $(SRCS_DIR)/bonus/instructions_bonus
 SORT_DIR 	= $(SRCS_DIR)/sort
 
 SRCS_UTILS = $(UTILS_DIR)/parse.c \
@@ -35,11 +35,11 @@ SRCS = $(SRCS_DIR)/push_swap.c \
 	$(INSTRU_DIR)/rrx.c \
 	$(SRCS_COMMON)
 
-BONUS_SRCS = $(SRCS_DIR)/bonus/checker.c \
-	$(INSTRU_BONUS_DIR)/px.c \
-	$(INSTRU_BONUS_DIR)/sx.c \
-	$(INSTRU_BONUS_DIR)/rx.c \
-	$(INSTRU_BONUS_DIR)/rrx.c \
+BONUS_SRCS = $(SRCS_DIR)/bonus/checker_bonus.c \
+	$(INSTRU_BONUS_DIR)/px_bonus.c \
+	$(INSTRU_BONUS_DIR)/sx_bonus.c \
+	$(INSTRU_BONUS_DIR)/rx_bonus.c \
+	$(INSTRU_BONUS_DIR)/rrx_bonus.c \
 	$(SRCS_UTILS)
 
 HEADER := -I includes \

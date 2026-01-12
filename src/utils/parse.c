@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 16:14:35 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/09 17:57:47 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/12 18:16:28 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static int	long_atoi(const char *nptr, int *ret)
 		(void)nptr[len++];
 		sign = -1;
 	}
+	else if (nptr[len] == '+')
+		(void)nptr[len++];
 	while (ft_isdigit(nptr[len]))
 		result = result * 10 + nptr[len++] - '0';
 	*ret = result * sign;
@@ -47,7 +49,7 @@ int	count_params_str(char *s)
 	flag = 1;
 	while (*s)
 	{
-		if (*s && *s == '-')
+		if (*s && (*s == '-' || *s == '+'))
 			s++;
 		while (*s && ft_isdigit(*s))
 		{
@@ -56,7 +58,7 @@ int	count_params_str(char *s)
 			flag = 0;
 			s++;
 		}
-		if ((*s && *s != ' ') || (*(s - 1) == '-'))
+		if ((*s && *s != ' ') || (*(s - 1) == '-' || *(s - 1) == '+'))
 			return (-1);
 		while (*s && !ft_isdigit(*s) && *s != '-')
 		{
@@ -92,6 +94,7 @@ static int	null_check(int ac, char **av)
 {
 	int	i;
 	int	len;
+	int	flag;
 
 	i = 1;
 	while (i < ac)
@@ -100,6 +103,13 @@ static int	null_check(int ac, char **av)
 		while ((av[i])[len])
 			len++;
 		if (!len)
+			return (1);
+		len = 0;
+		flag = 0;
+		while ((av[i])[len])
+			if (ft_isdigit((av[i])[len++]))
+				flag = 1;
+		if (!flag)
 			return (1);
 		i++;
 	}

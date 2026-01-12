@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 13:09:51 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/12 16:24:16 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/12 17:56:23 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,27 +32,27 @@ static int	is_sorted(t_stack *stack_a)
 
 static int	process_input(t_stack *stack_a, t_stack *stack_b, char *str)
 {
-	if (ft_strnstr(str, "pa", 2))
+	if (!ft_strncmp(str, "pa\n", 3))
 		str += push_bonus(stack_b, stack_a);
-	else if (ft_strnstr(str, "pb", 2))
+	else if (!ft_strncmp(str, "pb\n", 3))
 		str += push_bonus(stack_a, stack_b);
-	else if (ft_strnstr(str, "sa", 2))
+	else if (!ft_strncmp(str, "sa\n", 3))
 		str += swap_bonus(stack_a);
-	else if (ft_strnstr(str, "sb", 2))
+	else if (!ft_strncmp(str, "sb\n", 3))
 		str += swap_bonus(stack_b);
-	else if (ft_strnstr(str, "ss", 2))
+	else if (!ft_strncmp(str, "ss\n", 3))
 		str += swap_ss_bonus(stack_a, stack_b);
-	else if (ft_strnstr(str, "ra", 2))
+	else if (!ft_strncmp(str, "ra\n", 3))
 		str += rotate_bonus(stack_a);
-	else if (ft_strnstr(str, "rb", 2))
+	else if (!ft_strncmp(str, "rb\n", 3))
 		str += rotate_bonus(stack_b);
-	else if (ft_strnstr(str, "rra", 3))
+	else if (!ft_strncmp(str, "rra\n", 4))
 		str += r_rotate_bonus(stack_a);
-	else if (ft_strnstr(str, "rrb", 3))
+	else if (!ft_strncmp(str, "rrb\n", 4))
 		str += r_rotate_bonus(stack_b);
-	else if (ft_strnstr(str, "rrr", 3))
+	else if (!ft_strncmp(str, "rrr\n", 4))
 		str += r_rotate_both_bonus(stack_a, stack_b);
-	else if (ft_strnstr(str, "rr", 2))
+	else if (!ft_strncmp(str, "rr\n", 3))
 		str += rotate_both_bonus(stack_a, stack_b);
 	else
 		return (0);
@@ -71,7 +71,7 @@ static int	listen(t_stack *stack_a, t_stack *stack_b, int len)
 		len = read(0, line, 4096);
 		if (len == -1)
 		{
-			write(2, "Error\n", 6);
+			write(2, "Error\n\n", 6);
 			return (1);
 		}
 		if (!len)
@@ -79,7 +79,7 @@ static int	listen(t_stack *stack_a, t_stack *stack_b, int len)
 		line[len] = 0;
 		if (process_input(stack_a, stack_b, line) == 0)
 		{
-			write(2, "Error\n", 6);
+			write(2, "Error\n\n", 6);
 			free(line);
 			return (1);
 		}
@@ -105,7 +105,7 @@ int	main(int ac, char **av)
 		free_to_exit(0, stack_a, NULL);
 	if (check_stack_status(stack_a))
 	{
-		write(2, "Error\n", 6);
+		write(2, "Error\n\n", 6);
 		free_to_exit(-1, NULL, NULL);
 		return (1);
 	}
