@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 19:17:42 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/12 19:05:12 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/13 16:20:00 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,6 @@ int	check_stack_status(t_stack *stack)
 	i = 0;
 	while (i < stack->max_len)
 	{
-		if (stack->stack[i] == -1)
-			return (1);
 		j = i + 1;
 		while (j < stack->max_len)
 			if (stack->stack[i] == stack->stack[j++])

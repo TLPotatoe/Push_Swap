@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 15:49:33 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/12 13:09:37 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/13 16:19:54 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <unistd.h>
 
 # define INT_MAX 2147483647
-
 typedef struct s_stack
 {
 	int		*stack;

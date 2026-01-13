@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 15:49:33 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/12 15:51:55 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/13 15:36:43 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <unistd.h>
 
 # define INT_MAX 2147483647
+# define INT_MIN -2147483648
 
 typedef struct s_stack
 {
@@ -31,6 +32,7 @@ t_stack		*parse(int ac, char **av);
 t_stack		*new_stack(int len);
 
 char		*ft_strcharset(char *s1, char *charset);
+int			ft_strcmp(const char *s1, const char *s2);
 
 int			check_stack_status(t_stack *stack);
 void		free_to_exit(int status, t_stack *stack_a, t_stack *stack_b);

@@ -6,21 +6,20 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 16:14:35 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/12 18:16:28 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/13 16:40:56 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	long_atoi(const char *nptr, int *ret)
+static int	ps_atoi(const char *nptr, int *ret)
 {
 	int			sign;
-	long int	result;
 	int			len;
 
 	sign = 1;
-	result = 0;
 	len = 0;
+	*ret = 0;
 	while ((9 <= nptr[len] && nptr[len] <= 13) || nptr[len] == 32)
 		(void)nptr[len++];
 	if (nptr[len] == '-')
@@ -31,14 +30,38 @@ static int	long_atoi(const char *nptr, int *ret)
 	else if (nptr[len] == '+')
 		(void)nptr[len++];
 	while (ft_isdigit(nptr[len]))
-		result = result * 10 + nptr[len++] - '0';
-	*ret = result * sign;
-	if (result * sign != (int)(result * sign))
-		*ret = -1;
+		*ret = *ret * 10 + nptr[len++] - '0';
+	*ret = *ret * sign;
 	while (nptr[len] == ' ')
 		len++;
 	return (len);
 }
+
+static int	ps_atoll(const char *nptr, long long int *ret)
+{
+	int			sign;
+	int			len;
+
+	sign = 1;
+	len = 0;
+	*ret = 0;
+	while ((9 <= nptr[len] && nptr[len] <= 13) || nptr[len] == 32)
+		(void)nptr[len++];
+	if (nptr[len] == '-')
+	{
+		(void)nptr[len++];
+		sign = -1;
+	}
+	else if (nptr[len] == '+')
+		(void)nptr[len++];
+	while (ft_isdigit(nptr[len]))
+		*ret = *ret * 10 + nptr[len++] - '0';
+	*ret = *ret * sign;
+	while (nptr[len] == ' ')
+		len++;
+	return (len);
+}
+
 
 int	count_params_str(char *s)
 {
@@ -116,6 +139,30 @@ static int	null_check(int ac, char **av)
 	return (0);
 }
 
+static int check_long(char **av)
+{
+	long long int j;
+	int i;
+	int len;
+
+	i = 0;
+	j = 0;
+	len = 0;
+	while (i < get_n_params(av))
+	{
+		if (*(av[1] + len) != 0)
+		{
+			len += ps_atoll(av[1] + len, &j);
+			i++;
+			if (j != (int)j)
+				return (1);
+		}
+		else
+			len++;
+	}
+	return (0);
+}
+
 t_stack	*parse(int ac, char **av)
 {
 	int		n;
@@ -123,7 +170,7 @@ t_stack	*parse(int ac, char **av)
 	int		len;
 	t_stack	*stack_a;
 
-	if (null_check(ac, av))
+	if (null_check(ac, av) || check_long(av))
 		return (NULL);
 	n = get_n_params(av);
 	if (n < 1)
@@ -137,10 +184,9 @@ t_stack	*parse(int ac, char **av)
 	while (i < n)
 	{
 		if (*(av[1] + len) != 0)
-			len += long_atoi(av[1] + len, &stack_a->stack[i++]);
+			len += ps_atoi(av[1] + len, &stack_a->stack[i++]);
 		else
 			len++;
 	}
 	return (stack_a);
 }
-// if (*(av[1] + len + 1) == 0)
