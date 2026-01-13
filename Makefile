@@ -6,7 +6,7 @@
 #    By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/13 14:16:18 by fmurat--          #+#    #+#              #
-#    Updated: 2026/01/12 19:02:12 by tlamit           ###   ########.fr        #
+#    Updated: 2026/01/13 17:38:43 by tlamit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SORT_DIR 	= $(SRCS_DIR)/sort
 SRCS_UTILS = $(UTILS_DIR)/parse.c \
        $(UTILS_DIR)/utils.c \
        $(UTILS_DIR)/utils_2.c \
+       $(UTILS_DIR)/utils_3.c \
        $(UTILS_DIR)/cost.c \
        $(INSTRU_DIR)/utils.c
 

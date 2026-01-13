@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 19:17:42 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/13 16:20:00 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/13 17:36:48 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,27 +68,52 @@ int	check_stack_status(t_stack *stack)
 	return (0);
 }
 
-void	free_to_exit(int status, t_stack *stack_a, t_stack *stack_b)
+static int	count_params_str(char *s)
 {
-	static t_stack	*s_stack_a;
-	static t_stack	*s_stack_b;
+	int	n;
+	int	flag;
 
-	if (stack_a)
-		s_stack_a = stack_a;
-	if (stack_b)
-		s_stack_b = stack_b;
-	if (status == -1 && s_stack_a)
+	n = 0;
+	flag = 1;
+	while (*s)
 	{
-		free(s_stack_a->stack);
-		s_stack_a->stack = NULL;
-		free(s_stack_a);
-		s_stack_a = NULL;
+		if (*s && (*s == '-' || *s == '+'))
+			s++;
+		while (*s && ft_isdigit(*s))
+		{
+			if (flag)
+				n++;
+			flag = 0;
+			s++;
+		}
+		if ((*s && *s != ' ') || (*(s - 1) == '-' || *(s - 1) == '+'))
+			return (-1);
+		while (*s && !ft_isdigit(*s) && *s != '-')
+		{
+			flag = 1;
+			s++;
+		}
 	}
-	if (status == -1 && s_stack_b)
+	return (n);
+}
+
+int	get_n_params(char **av)
+{
+	int	i;
+	int	n;
+	int	temp;
+
+	if (!av)
+		return (-1);
+	i = 1;
+	n = 0;
+	while (av[i])
 	{
-		free(s_stack_b->stack);
-		s_stack_b->stack = NULL;
-		free(s_stack_b);
-		s_stack_b = NULL;
+		temp = count_params_str(av[i]);
+		if (temp == -1)
+			return (-1);
+		n += temp;
+		i++;
 	}
+	return (n);
 }

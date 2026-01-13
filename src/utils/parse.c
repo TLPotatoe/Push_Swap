@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 16:14:35 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/13 16:40:56 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/13 17:35:29 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	ps_atoi(const char *nptr, int *ret)
 {
-	int			sign;
-	int			len;
+	int	sign;
+	int	len;
 
 	sign = 1;
 	len = 0;
@@ -39,8 +39,8 @@ static int	ps_atoi(const char *nptr, int *ret)
 
 static int	ps_atoll(const char *nptr, long long int *ret)
 {
-	int			sign;
-	int			len;
+	int	sign;
+	int	len;
 
 	sign = 1;
 	len = 0;
@@ -60,57 +60,6 @@ static int	ps_atoll(const char *nptr, long long int *ret)
 	while (nptr[len] == ' ')
 		len++;
 	return (len);
-}
-
-
-int	count_params_str(char *s)
-{
-	int	n;
-	int	flag;
-
-	n = 0;
-	flag = 1;
-	while (*s)
-	{
-		if (*s && (*s == '-' || *s == '+'))
-			s++;
-		while (*s && ft_isdigit(*s))
-		{
-			if (flag)
-				n++;
-			flag = 0;
-			s++;
-		}
-		if ((*s && *s != ' ') || (*(s - 1) == '-' || *(s - 1) == '+'))
-			return (-1);
-		while (*s && !ft_isdigit(*s) && *s != '-')
-		{
-			flag = 1;
-			s++;
-		}
-	}
-	return (n);
-}
-
-int	get_n_params(char **av)
-{
-	int	i;
-	int	n;
-	int	temp;
-
-	if (!av)
-		return (-1);
-	i = 1;
-	n = 0;
-	while (av[i])
-	{
-		temp = count_params_str(av[i]);
-		if (temp == -1)
-			return (-1);
-		n += temp;
-		i++;
-	}
-	return (n);
 }
 
 static int	null_check(int ac, char **av)
@@ -139,11 +88,11 @@ static int	null_check(int ac, char **av)
 	return (0);
 }
 
-static int check_long(char **av)
+static int	check_long(char **av)
 {
-	long long int j;
-	int i;
-	int len;
+	long long int	j;
+	int				i;
+	int				len;
 
 	i = 0;
 	j = 0;
