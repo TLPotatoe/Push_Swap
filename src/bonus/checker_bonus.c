@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 13:09:51 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/12 17:56:23 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/14 14:06:34 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,17 +61,14 @@ static int	process_input(t_stack *stack_a, t_stack *stack_b, char *str)
 
 static int	listen(t_stack *stack_a, t_stack *stack_b, int len)
 {
-	char	*line;
+	char	line[65536];
 
 	while (len)
 	{
-		line = malloc(4096);
-		if (!line)
-			return (1);
-		len = read(0, line, 4096);
+		len = read(0, line, 65536);
 		if (len == -1)
 		{
-			write(2, "Error\n\n", 6);
+			write(2, "Error\n", 6);
 			return (1);
 		}
 		if (!len)
@@ -79,8 +76,7 @@ static int	listen(t_stack *stack_a, t_stack *stack_b, int len)
 		line[len] = 0;
 		if (process_input(stack_a, stack_b, line) == 0)
 		{
-			write(2, "Error\n\n", 6);
-			free(line);
+			write(2, "Error\n", 6);
 			return (1);
 		}
 	}
@@ -105,7 +101,7 @@ int	main(int ac, char **av)
 		free_to_exit(0, stack_a, NULL);
 	if (check_stack_status(stack_a))
 	{
-		write(2, "Error\n\n", 6);
+		write(2, "Error\n", 6);
 		free_to_exit(-1, NULL, NULL);
 		return (1);
 	}

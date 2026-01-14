@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 17:38:27 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/13 17:39:01 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/14 14:01:44 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	free_to_exit(int status, t_stack *stack_a, t_stack *stack_b)
 {
-	static t_stack *s_stack_a;
-	static t_stack *s_stack_b;
+	static t_stack	*s_stack_a;
+	static t_stack	*s_stack_b;
 
 	if (stack_a)
 		s_stack_a = stack_a;
