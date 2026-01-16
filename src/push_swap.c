@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 15:36:58 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/13 17:38:13 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/16 18:48:50 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	main(int ac, char **av)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
+	if (ac < 2)
+		return (0);
 	stack_a = parse(ac, av);
 	if (stack_a)
 		free_to_exit(0, stack_a, NULL);

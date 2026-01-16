@@ -1,17 +1,16 @@
-This project has been created as part of the 42 curriculum by tlamit.
+# *This project has been created as part of the 42 curriculum by tlamit.*
 
 ## Description
 
-The Push_swap project is a 42 school project. The goal is to sort a stack of integers using a limited set of instructions and the smallest number of moves. You are given two stacks, `a` and `b`, and a set of allowed operations. At the beginning, stack `b` is empty and stack `a` contains a random set of unique integers. The goal is to sort stack `a` in ascending order.
+The goal of this project is to sort a stack of integers using a limited set of instructions and the smallest number of moves. You are given two stacks, `a` and `b`. At the beginning, stack `b` is empty and stack `a` contains a random set of unique integers. The objective is to sort stack `a` in ascending order.
 
 ## Instructions
 
 ### Compilation
 
-To compile the project, run the following command:
-
 ```bash
-make
+make        # Compiles push_swap
+make bonus  # Compiles checker
 ```
 
 This will create the `push_swap` executable.
