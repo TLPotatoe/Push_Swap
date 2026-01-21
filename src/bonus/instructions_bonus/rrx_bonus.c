@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rrx.c                                              :+:      :+:    :+:   */
+/*   rrx_bonus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:40:55 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/12 16:11:30 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/21 19:11:27 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	rrotate(t_stack *stack)
 int	r_rotate_bonus(t_stack *stack)
 {
 	rrotate(stack);
-	return (2);
+	return (4);
 }
 
 int	r_rotate_both_bonus(t_stack *stack_a, t_stack *stack_b)
@@ -35,5 +35,5 @@ int	r_rotate_both_bonus(t_stack *stack_a, t_stack *stack_b)
 		return (3);
 	rrotate(stack_a);
 	rrotate(stack_b);
-	return (3);
+	return (4);
 }

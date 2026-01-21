@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 13:09:51 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/21 16:33:28 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/21 19:16:08 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	is_sorted(t_stack *stack_a)
 	return (1);
 }
 
-static int	process_input(t_stack *stack_a, t_stack *stack_b, char *str)
+static char	*process_input(t_stack *stack_a, t_stack *stack_b, char *str)
 {
 	if (!ft_strncmp(str, "pa\n", 3))
 		str += push_bonus(stack_b, stack_a);
@@ -55,17 +55,18 @@ static int	process_input(t_stack *stack_a, t_stack *stack_b, char *str)
 	else if (!ft_strncmp(str, "rr\n", 3))
 		str += rotate_both_bonus(stack_a, stack_b);
 	else
-		return (0);
-	return (*str);
+		return (NULL);
+	return (str);
 }
 
 static int	listen(t_stack *stack_a, t_stack *stack_b, int len)
 {
 	char	line[65536];
+	char	*p;
 
 	while (len)
 	{
-		len = read(0, line, 65536);
+		len = read(0, line, 65535);
 		if (len == -1)
 		{
 			write(2, "Error\n", 6);
@@ -74,7 +75,10 @@ static int	listen(t_stack *stack_a, t_stack *stack_b, int len)
 		if (!len)
 			return (0);
 		line[len] = 0;
-		if (process_input(stack_a, stack_b, line) == 0)
+		p = line;
+		while (p && *p)
+			p = process_input(stack_a, stack_b, p);
+		if (!p)
 		{
 			write(2, "Error\n", 6);
 			return (1);

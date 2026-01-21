@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:00:56 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/14 14:03:36 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/21 19:08:20 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	local_rotate(t_stack *stack)
 int	rotate_bonus(t_stack *stack)
 {
 	local_rotate(stack);
-	return (2);
+	return (3);
 }
 
 int	rotate_both_bonus(t_stack *stack_a, t_stack *stack_b)
@@ -34,5 +34,5 @@ int	rotate_both_bonus(t_stack *stack_a, t_stack *stack_b)
 		return (2);
 	local_rotate(stack_a);
 	local_rotate(stack_b);
-	return (2);
+	return (3);
 }
