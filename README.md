@@ -48,6 +48,4 @@ If the output is `OK`, the list is sorted correctly. Otherwise, it will show `KO
 
 AI was used for the following tasks in this project:
 
-- **Generating this README.md file:** An AI agent was prompted to create a README file that meets the 42 curriculum requirements.
 - **Debugging:** AI was used to help debug parts of the sorting algorithm.
-- **Code explanation:** AI helped in understanding and explaining certain parts of the code.
