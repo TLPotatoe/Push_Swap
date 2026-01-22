@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 19:17:42 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/13 17:36:48 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/22 14:27:55 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ static int	count_params_str(char *s)
 		}
 		if ((*s && *s != ' ') || (*(s - 1) == '-' || *(s - 1) == '+'))
 			return (-1);
-		while (*s && !ft_isdigit(*s) && *s != '-')
+		while (*s && !ft_isdigit(*s) && !ft_isalpha(*s) && *s != '-')
 		{
 			flag = 1;
 			s++;
