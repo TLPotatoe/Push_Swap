@@ -6,7 +6,7 @@
 /*   By: tlamit <titouan.lamit@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 17:40:55 by tlamit            #+#    #+#             */
-/*   Updated: 2026/01/21 19:11:27 by tlamit           ###   ########.fr       */
+/*   Updated: 2026/01/28 19:03:39 by tlamit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	r_rotate_bonus(t_stack *stack)
 int	r_rotate_both_bonus(t_stack *stack_a, t_stack *stack_b)
 {
 	if (stack_a->len == 0 || stack_b->len == 0)
-		return (3);
+		return (4);
 	rrotate(stack_a);
 	rrotate(stack_b);
 	return (4);
